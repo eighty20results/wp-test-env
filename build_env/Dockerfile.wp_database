@@ -3,15 +3,14 @@
 #
 # Other supported versions can be found at https://hub.docker.com/r/wordpressdevelop/phpunit/tags
 #
-#
-ENV VERSION='latest'
-ENV MYSQL_ROOT_PASSWORD='admin'
-ENV MYSQL_DATABASE='wp_test'
-ENV MYSQL_PASSWORD='wordpress'
-ENV MYSQL_USER='wordpress'
-ENV PLUGIN_DIR="."
+# Environment variables used to configure the environment
+ENV VERSION 'latest'
+ENV MYSQL_ROOT_PASSWORD 'admin'
+ENV MYSQL_DATABASE 'wp_test'
+ENV MYSQL_PASSWORD 'wordpress'
+ENV MYSQL_USER 'wordpress'
+ENV PLUGIN_DIR "."
 
 FROM mariadb:${VERSION}
 MAINTAINER Thomas Sjolshagen <thomas@eigthy20results.com>
 
-COPY ${PLUGIN_DIR} "/var/www/html/wp-content/plugins/"
