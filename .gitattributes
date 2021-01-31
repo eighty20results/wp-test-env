@@ -4,9 +4,13 @@
 /build_readmes export-ignore
 /build export-ignore
 /docker-env export-ignore
+/build_env export-ignore
 /plugin-updates export-ignore
 /node_modules export-ignore
 /.wordpress-org export-ignore
+# Test should not be included in plugin .zip/tar.gz archives
+/test export-ignore
+/build_env export_ignore
 
 # Files
 /.gitattributes export-ignore
@@ -19,9 +23,3 @@
 /class/utilities/.editorconfig export-ignore
 /class/utilities/composer.json export-ignore
 
-#/.git export-ignore
-#/action.yml export-ignore
-#/.gitmodules export-ignore
-#/Dockerfile export-ignore
-#/entrypoint.sh export-ignore
-#/remove_updates.sh export-ignore
