@@ -1,0 +1,27 @@
+# Directories
+/.github export-ignore
+/bin export-ignore
+/build_readmes export-ignore
+/build export-ignore
+/docker-env export-ignore
+/plugin-updates export-ignore
+/node_modules export-ignore
+/.wordpress-org export-ignore
+
+# Files
+/.gitattributes export-ignore
+/.editorconfig export-ignore
+/.gitignore export-ignore
+/.distignore export-ignore
+/metadata.json export-ignore
+/package.json export-ignore
+/class/utilities/.gitignore export-ignore
+/class/utilities/.editorconfig export-ignore
+/class/utilities/composer.json export-ignore
+
+#/.git export-ignore
+#/action.yml export-ignore
+#/.gitmodules export-ignore
+#/Dockerfile export-ignore
+#/entrypoint.sh export-ignore
+#/remove_updates.sh export-ignore

@@ -1,0 +1,17 @@
+{
+  "name": "eighty20results/<WORDPRESS_PLUGIN>",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thomas Sjolshagen",
+      "email": "thomas@eighty20results.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "10up/wp_mock": ">=0.4.2"
+  }
+}

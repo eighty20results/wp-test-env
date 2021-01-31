@@ -1,0 +1,17 @@
+# Using the lowest 5.x based version of PHP and related PHPUnit container from the Docker HUB
+# Currently that's 5.6.20-fpm.
+#
+# Other supported versions can be found at https://hub.docker.com/r/wordpressdevelop/phpunit/tags
+#
+#
+ENV VERSION='latest'
+ENV MYSQL_ROOT_PASSWORD='admin'
+ENV MYSQL_DATABASE='wp_test'
+ENV MYSQL_PASSWORD='wordpress'
+ENV MYSQL_USER='wordpress'
+ENV PLUGIN_DIR="."
+
+FROM mariadb:${VERSION}
+MAINTAINER Thomas Sjolshagen <thomas@eigthy20results.com>
+
+COPY ${PLUGIN_DIR} "/var/www/html/wp-content/plugins/"
