@@ -11,15 +11,17 @@ jobs:
     name: Test of "Push to wordpress.org" workflow
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        repository: eighty20results/<plugin_slug>
-        ref: test_workflow_updates
-    - name: Test of "WordPress Plugin Deploy" for ${{ github.ref }}
-      uses: eighty20results/<plugin_slug>@test_workflow_updates
-      env:
-        SLUG: <plugin_slug>
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB }}
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          ref: test_workflow_updates
+      - name: Set the plugin SLUG name
+        run: echo "SLUG=$(echo '${{ github.repository }}' | awk -F '/' '{print $1}')" >> $GITHUB_ENV
+        shell: bash
+      - name: Test of "WordPress Plugin Deploy" for ${{ github.ref }} by ${{ github.actor }}
+        uses: ${{ github.repository }}@test_workflow_updates
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB }}
 
