@@ -8,6 +8,7 @@ ENV MYSQL_ROOT_PASSWORD 'admin'
 ENV MYSQL_DATABASE 'wp_test'
 ENV MYSQL_PASSWORD 'wordpress'
 ENV MYSQL_USER 'wordpress'
+ENV MYSQL_HOST 'database'
 ENV PLUGIN_DIR "."
 
 FROM wordpressdevelop/phpunit:${VERSION}

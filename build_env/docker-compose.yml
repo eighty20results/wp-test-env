@@ -1,0 +1,42 @@
+# /build_env/docker-compose.yml
+---
+version: '3.3'
+services:
+  database:
+    container_name: 'wordpress-test-db'
+    build:
+      context: build_env/db
+      dockerfile: build_env/Dockerfile.wp_database
+      args:
+        buildno: 1
+    image: eighty20results/wp-unittest-db:latest
+    volumes:
+      - './data/mysql:/var/lib/mysql'
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress_db
+      MYSQL_USER: wordpress_user
+      MYSQL_PASSWORD: wordpress_password
+
+  wordpress:
+    container_name: 'local-wp-unittest'
+    depends_on:
+      - wp_db
+    build:
+      context: .
+      dockerfile: build_env/Dockerfile.wp_unittests
+      args:
+        buildno: 1
+    image: 'eighty20results/wp-unittest:latest'
+    ports:
+      - '80:80'
+    environment:
+      WORDPRESS_DB_HOST: 'wp_db:3306'
+      WORDPRESS_DB_USER: wordpress_user
+      WORDPRESS_DB_PASSWORD: wordpress_password
+      WORDPRESS_DB_NAME: wordpress_db
+    volumes:
+      - "./wordpress:/var/www/html"
+      - "./plugins:/var/www/html/wp-content/plugins"
